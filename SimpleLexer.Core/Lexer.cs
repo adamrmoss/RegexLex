@@ -4,10 +4,10 @@ using System.Text.RegularExpressions;
 
 namespace SimpleLexer.Core
 {
-  public class Lexer : ILexer
+  public class Lexer
   {
-    Regex endOfLineRegex = new Regex(@"\r\n|\r|\n", RegexOptions.Compiled);
-    IList<TokenDefinition> tokenDefinitions = new List<TokenDefinition>();
+    private Regex endOfLineRegex = new Regex(@"\r\n|\r|\n", RegexOptions.Compiled);
+    private IList<TokenDefinition> tokenDefinitions = new List<TokenDefinition>();
 
     public void AddDefinition(TokenDefinition tokenDefinition)
     {
@@ -39,8 +39,13 @@ namespace SimpleLexer.Core
         } else {
           var value = source.Substring(currentIndex, matchLength);
 
-          if (!matchedDefinition.IsIgnored)
-            yield return new Token(matchedDefinition.Type, value, new TokenPosition(currentIndex, currentLine, currentColumn));
+          if (!matchedDefinition.IsIgnored) {
+            yield return new Token {
+              Type = matchedDefinition.Type,
+              Value = value,
+              Position = new TokenPosition { Index = currentIndex, Line = currentLine, Column = currentColumn }
+           };
+          }
 
           var endOfLineMatch = endOfLineRegex.Match(value);
           if (endOfLineMatch.Success) {
@@ -54,7 +59,11 @@ namespace SimpleLexer.Core
         }
       }
 
-      yield return new Token("(end)", null, new TokenPosition(currentIndex, currentLine, currentColumn));
+      yield return new Token {
+        Type = "EOF",
+        Value = null,
+        Position = new TokenPosition { Index = currentIndex, Line = currentLine, Column = currentColumn }
+      };
     }
   }
 }

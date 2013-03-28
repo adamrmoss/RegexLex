@@ -18,13 +18,23 @@ namespace SimpleLexer.Specs
     {
       lexer = new Lexer();
       
-      var operatorTokenDefinition = new TokenDefinition("Operator", new Regex(@"\*|\/|\+|\-"));
+      var operatorTokenDefinition = new TokenDefinition {
+        Type = "Operator",
+        Regex = new Regex(@"\*|\/|\+|\-")
+      };
       lexer.AddDefinition(operatorTokenDefinition);
       
-      var literalTokenDefinition = new TokenDefinition("Literal", new Regex(@"\d+"));
+      var literalTokenDefinition = new TokenDefinition {
+        Type = "Literal",
+        Regex = new Regex(@"\d+")
+      };
       lexer.AddDefinition(literalTokenDefinition);      
 
-      var whitespaceTokenDefinition = new TokenDefinition("Whitespace", new Regex(@"\s+"), true);
+      var whitespaceTokenDefinition = new TokenDefinition {
+        Type = "Whitespace",
+        Regex = new Regex(@"\s+"),
+        IsIgnored = true
+      };
       lexer.AddDefinition(whitespaceTokenDefinition);
       
       tokens = lexer.Tokenize("1 * 2 / 3 + 4 - 5");
