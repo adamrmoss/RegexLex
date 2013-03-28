@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLexer", "SimpleLexer.csproj", "{52D1942C-521C-45D1-8C92-2CC965F30724}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLexer.Core", "SimpleLexer.Core\SimpleLexer.Core.csproj", "{52D1942C-521C-45D1-8C92-2CC965F30724}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLexer.Specs", "SimpleLexer.Specs\SimpleLexer.Specs.csproj", "{951530DA-E87F-43EA-9B41-C21DB9DABDF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,13 @@ Global
 		{52D1942C-521C-45D1-8C92-2CC965F30724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52D1942C-521C-45D1-8C92-2CC965F30724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52D1942C-521C-45D1-8C92-2CC965F30724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{951530DA-E87F-43EA-9B41-C21DB9DABDF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{951530DA-E87F-43EA-9B41-C21DB9DABDF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{951530DA-E87F-43EA-9B41-C21DB9DABDF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{951530DA-E87F-43EA-9B41-C21DB9DABDF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = SimpleLexer.Core\SimpleLexer.Core.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
