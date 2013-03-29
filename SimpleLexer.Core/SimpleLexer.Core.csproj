@@ -8,8 +8,8 @@
     <ProjectGuid>{52D1942C-521C-45D1-8C92-2CC965F30724}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleLexer</RootNamespace>
-    <AssemblyName>SimpleLexer</AssemblyName>
+    <RootNamespace>SimpleLexer.Core</RootNamespace>
+    <AssemblyName>SimpleLexer.Core</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

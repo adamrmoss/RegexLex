@@ -10,27 +10,27 @@ namespace SimpleLexer.Specs
   [TestFixture]
   public class DemoLexer : AssertionHelper
   {
-    private Lexer lexer;
-    private IEnumerable<Token> tokens;
+    private Lexer<string> lexer;
+    private IEnumerable<Token<string>> tokens;
 
     [SetUp]
     public void SetUp()
     {
-      lexer = new Lexer();
+      lexer = new Lexer<string>();
       
-      var operatorTokenDefinition = new TokenDefinition {
+      var operatorTokenDefinition = new TokenDefinition<string> {
         Type = "Operator",
         Regex = new Regex(@"\*|\/|\+|\-")
       };
       lexer.AddDefinition(operatorTokenDefinition);
       
-      var literalTokenDefinition = new TokenDefinition {
+      var literalTokenDefinition = new TokenDefinition<string> {
         Type = "Literal",
         Regex = new Regex(@"\d+")
       };
       lexer.AddDefinition(literalTokenDefinition);      
 
-      var whitespaceTokenDefinition = new TokenDefinition {
+      var whitespaceTokenDefinition = new TokenDefinition<string> {
         Type = "Whitespace",
         Regex = new Regex(@"\s+"),
         IsIgnored = true

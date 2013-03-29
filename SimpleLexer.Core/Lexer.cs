@@ -4,24 +4,24 @@ using System.Text.RegularExpressions;
 
 namespace SimpleLexer.Core
 {
-  public class Lexer
+  public class Lexer<TToken>
   {
     private Regex endOfLineRegex = new Regex(@"\r\n|\r|\n", RegexOptions.Compiled);
-    private IList<TokenDefinition> tokenDefinitions = new List<TokenDefinition>();
+    private IList<TokenDefinition<TToken>> tokenDefinitions = new List<TokenDefinition<TToken>>();
 
-    public void AddDefinition(TokenDefinition tokenDefinition)
+    public void AddDefinition(TokenDefinition<TToken> tokenDefinition)
     {
       tokenDefinitions.Add(tokenDefinition);
     }
 
-    public IEnumerable<Token> Tokenize(string source)
+    public IEnumerable<Token<TToken>> Tokenize(string source)
     {
       int currentIndex = 0;
       int currentLine = 1;
       int currentColumn = 0;
 
       while (currentIndex < source.Length) {
-        TokenDefinition matchedDefinition = null;
+        TokenDefinition<TToken> matchedDefinition = null;
         int matchLength = 0;
 
         foreach (var rule in tokenDefinitions) {
@@ -40,7 +40,7 @@ namespace SimpleLexer.Core
           var value = source.Substring(currentIndex, matchLength);
 
           if (!matchedDefinition.IsIgnored) {
-            yield return new Token {
+            yield return new Token<TToken> {
               Type = matchedDefinition.Type,
               Value = value,
               Position = new TokenPosition { Index = currentIndex, Line = currentLine, Column = currentColumn }
@@ -59,8 +59,8 @@ namespace SimpleLexer.Core
         }
       }
 
-      yield return new Token {
-        Type = "EOF",
+      yield return new Token<TToken> {
+        Type = default(TToken),
         Value = null,
         Position = new TokenPosition { Index = currentIndex, Line = currentLine, Column = currentColumn }
       };

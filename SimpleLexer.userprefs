@@ -1,19 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SimpleLexer.Specs/DemoLexer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SimpleLexer.Core/Lexer.cs">
     <Files>
-      <File FileName="SimpleLexer.Core/ILexer.cs" Line="1" Column="1" />
-      <File FileName="SimpleLexer.Core/Lexer.cs" Line="17" Column="30" />
-      <File FileName="SimpleLexer.Core/Token.cs" Line="1" Column="1" />
-      <File FileName="SimpleLexer.Core/TokenDefinition.cs" Line="1" Column="1" />
-      <File FileName="SimpleLexer.Core/TokenPosition.cs" Line="1" Column="1" />
-      <File FileName="SimpleLexer.Specs/DemoLexer.cs" Line="42" Column="33" />
+      <File FileName="SimpleLexer.Core/TokenDefinition.cs" Line="6" Column="38" />
+      <File FileName="SimpleLexer.Core/Lexer.cs" Line="64" Column="22" />
+      <File FileName="SimpleLexer.Specs/DemoLexer.cs" Line="14" Column="37" />
+      <File FileName="SimpleLexer.Core/Token.cs" Line="5" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="SimpleLexer.Core" expanded="True" selected="True" />
-          <Node name="SimpleLexer.Specs" expanded="True" />
+          <Node name="SimpleLexer.Core" expanded="True" />
+          <Node name="SimpleLexer.Specs" expanded="True" selected="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">

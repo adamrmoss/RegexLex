@@ -2,9 +2,9 @@
 
 namespace SimpleLexer.Core
 {
-  public class Token
+  public class Token<TToken>
   {
-    public string Type { get; set; }
+    public TToken Type { get; set; }
     public string Value { get; set; }
     public TokenPosition Position { get; set; }
 
